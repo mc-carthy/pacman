@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(CircleCollider2D))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class PacmanMovement : MonoBehaviour {
 
 	[SerializeField]
@@ -24,6 +25,10 @@ public class PacmanMovement : MonoBehaviour {
 	private void FixedUpdate () {
 		Move();
 		Animate();
+	}
+
+	public void Die () {
+		Destroy(gameObject);
 	}
 
 	private bool IsValidDirection (Vector2 dir) {
